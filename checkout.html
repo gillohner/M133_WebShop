@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Gil Lohner">
+    <title>BBZW Dorfladen</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' type='text/css'/>
+    <script src="https://kit.fontawesome.com/35749fc374.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="server.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <a class="navbar-brand">BBZW Dorfladen</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="nav navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">Products <span class="sr-only">(current)</span></a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+    </header>
+    <main>
+      <br><br><br> <!-- Fix Navabr on top of content -->
+      <div class="row">
+        <div class="col-100">
+          <div class="container">
+            <form name="checkoutform" action="" onsubmit="return validateForm()">
+      
+              <div class="row">
+                <div class="col-50">
+                  <h3>Rechnungsadresse</h3>
+                  <label for="name"><i class="fa fa-user"></i> Name</label>
+                  <input type="text" id="name" name="name" placeholder="Max Mustermann">
+                  <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                  <input type="text" id="email" name="email" placeholder="max.mustermann@example.com">
+                  <label for="adress"><i class="fa fa-address-card-o"></i> Addresss</label>
+                  <input type="text" id="adress" name="address" placeholder="Musterstrasse 69">
+                  <label for="city"><i class="fa fa-institution"></i> Ort</label>
+                  <input type="text" id="city" name="city" placeholder="Musterhausen">
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="kanton">Kanton</label>
+                      <input type="text" id="kanton" name="kanton" placeholder="SZ">
+                    </div>
+                    <div class="col-50">
+                      <label for="plz">PLZ</label>
+                      <input type="text" id="plz" name="plz" placeholder="1000">
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="col-50">
+                  <h3>Bezahlung</h3>
+                  <label for="fname">Akzeptierte Karten</label>
+                  <div class="icon-container">
+                    <i class="fab fa-cc-visa" style="color:navy;"></i>
+                    <i class="fab fa-cc-amex" style="color:blue;"></i>
+                    <i class="fab fa-cc-mastercard" style="color:red;"></i>
+                    <i class="fab fa-cc-discover" style="color:orange;"></i>
+                  </div>
+                  <label for="cardname">Name auf Karte</label>
+                  <input type="text" id="cardname" name="cardname" placeholder="John More Doe">
+                  <label for="ccnumber">Kreditkartennummer</label>
+                  <input type="text" id="ccnumber" name="cardnumber" placeholder="1111-2222-3333-4444">
+                  <label for="expmonth">Ablaufmonat</label>
+                  <input type="text" id="expmonth" name="expmonth" placeholder="Dezember">
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="expyear">Ablaufjahr</label>
+                      <input type="text" id="expyear" name="expyear" placeholder="2025">
+                    </div>
+                    <div class="col-50">
+                      <label for="cvv">CVV</label>
+                      <input type="text" id="cvv" name="cvv" placeholder="352">
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+              <input type="submit" value="Bestellen" class="btn">
+            </form>
+          </div>
+        </div>
+      
+        <div id="cart-wrap"></div>
+        <div id="cart-list"></div>
+      </div>
+    </main>    
+  </body>
+  <script>
+    function validateForm() {
+      var x = document.forms["checkoutform"]["name"].value;
+      if (x == "") {
+        alert("Name muss ausgefüllt sein");
+        return false;
+      }
+      
+      var x = document.forms["checkoutform"]["email"].value;
+      if (x == "") {
+        alert("Email muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["address"].value;
+      if (x == "") {
+        alert("Adresse muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["city"].value;
+      if (x == "") {
+        alert("Ort muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["kanton"].value;
+      if (x == "") {
+        alert("Kanton muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["plz"].value;
+      if (x == "") {
+        alert("PLZ muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["cardname"].value;
+      if (x == "") {
+        alert("Kartenname muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["ccnumber"].value;
+      if (x == "") {
+        alert("Kartennummer muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["expmonth"].value;
+      if (x == "") {
+        alert("ablaufmonat muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["expyear"].value;
+      if (x == "") {
+        alert("Ablaufjahr muss ausgefüllt sein");
+        return false;
+      }
+
+      var x = document.forms["checkoutform"]["cvv"].value;
+      if (x == "") {
+        alert("CVV muss ausgefüllt sein");
+        return false;
+      }
+
+      alert("Danke für ihren Einkauf");
+    }
+  </script>
+</html>
